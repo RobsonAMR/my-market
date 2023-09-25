@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+     <h1> Lista de Compras</h1>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <h3> <ion-button expand="full" (click)="adicionarItem()">Adicionar Item</ion-button></h3>
+
+  <ion-list>
+    <ion-item *ngFor="let item of listaCompras; let i = index">
+      <h5>{{ item.nome }} - {{ item.quantidade }} x {{ item.preco }}</h5>
+      <ion-button (click)="removerItem(i)" slot="end" fill="clear">Remover</ion-button>
+      <ion-button (click)="removerUnidade(i)" slot="end" fill="clear">-</ion-button>
+      <ion-button (click)="adicionarUnidade(i)" slot="end" fill="clear">+</ion-button>
+    </ion-item>
+  </ion-list>
+
+ <h3> <ion-button expand="full" (click)="calcularTotal()">Calcular Total</ion-button></h3>
+  <h2><ion-label>Total: {{ total }}</ion-label></h2>
+
+  <div class="image-container">
+    <img src="assets/icon/306926.png" width="700px" />
+  </div>
+</ion-content>
+
+<footer>
+  <h3> Robson Almeida  Lista de Compras 2023&copy;. </h3>
+</footer>
+
+<style>
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+</style>
